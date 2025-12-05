@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Siddhant Saurav | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #020617cc;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --text: #f9fafb;
+      --muted: #cbd5f5;
+      --card-bg: rgba(15, 23, 42, 0.8);
+      --border: rgba(148, 163, 184, 0.3);
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.9);
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Layout */
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* NAVBAR */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.95),
+        rgba(15, 23, 42, 0.7),
+        transparent
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 0;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .logo-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #38bdf8, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.6);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text span:first-child {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .logo-text span:last-child {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      font-size: 0.9rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: var(--muted);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-btn {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.8rem;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.25), transparent);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      border-color: rgba(56, 189, 248, 0.9);
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.45);
+      transform: translateY(-1px);
+    }
+
+    /* MOBILE NAV (simple) */
+
+    .nav-toggle {
+      display: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .mobile-menu {
+        display: none;
+        padding-bottom: 0.8rem;
+      }
+
+      .mobile-menu a {
+        display: block;
+        padding: 0.35rem 0;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .mobile-menu a:hover {
+        color: var(--text);
+      }
+
+      .mobile-menu.open {
+        display: block;
+      }
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 4rem 0 3.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #22c55e, #15803d);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, #f9fafb, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.97rem;
+      color: var(--muted);
+      max-width: 32rem;
+      line-height: 1.6;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .tag {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.78rem;
+      padding: 0.28rem 0.75rem;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .tag-strong {
+      border-color: rgba(56, 189, 248, 0.9);
+      color: #e0f2fe;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.35), rgba(15, 23, 42, 0.95));
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+      padding: 0.65rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #a855f7);
+      box-shadow: 0 20px 40px rgba(56, 189, 248, 0.45);
+      color: #0b1020;
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1.5px);
+      box-shadow: 0 24px 55px rgba(56, 189, 248, 0.7);
+    }
+
+    .btn-outline {
+      border-color: rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--muted);
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(148, 163, 184, 1);
+      transform: translateY(-1px);
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .btn-icon {
+      font-size: 1rem;
+      margin-top: 1px;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-note strong {
+      color: #e5e7eb;
+    }
+
+    /* HERO RIGHT / CARD */
+
+    .hero-card {
+      border-radius: 26px;
+      background: linear-gradient(145deg, rgba(56, 189, 248, 0.2), rgba(15, 23, 42, 0.95));
+      padding: 1.4rem 1.4rem 1.5rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.1rem;
+      font-size: 0.85rem;
+    }
+
+    .hero-card-title {
+      font-weight: 500;
+    }
+
+    .status-pill {
+      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #22c55e, #15803d);
+    }
+
+    .hero-card-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+      gap: 1.1rem;
+      align-items: center;
+    }
+
+    @media (max-width: 480px) {
+      .hero-card-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .avatar-card {
+      border-radius: 20px;
+      padding: 0.8rem;
+      background: var(--bg-soft);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar-main {
+      border-radius: 16px;
+      aspect-ratio: 3/4;
+      background: radial-gradient(circle at 30% 10%, #38bdf8, #020617);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      position: relative;
+    }
+
+    .avatar-main::after {
+      content: "CSE • AI • DEV";
+      position: absolute;
+      bottom: 0.9rem;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+    }
+
+    .avatar-orbit-dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #a855f7;
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.9);
+    }
+
+    .dot1 {
+      top: 12%;
+      left: 15%;
+    }
+
+    .dot2 {
+      top: 25%;
+      right: 15%;
+      background: #22c55e;
+    }
+
+    .dot3 {
+      bottom: 18%;
+      left: 22%;
+      background: #facc15;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+
+    .stat {
+      border-radius: 1rem;
+      padding: 0.7rem 0.8rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 0.08rem;
+      font-size: 1.05rem;
+    }
+
+    .stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 0.15rem 0.55rem;
+      margin-top: 0.3rem;
+      font-size: 0.68rem;
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 0 0 3.3rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.7);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 55px rgba(15, 23, 42, 0.9);
+      border-color: rgba(56, 189, 248, 0.6);
+    }
+
+    /* ABOUT */
+
+    .about-text {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.2rem;
+      font-size: 0.82rem;
+    }
+
+    .about-chip {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 0.25rem 0.7rem;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-title {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .skill-desc {
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.7rem;
+      font-size: 0.75rem;
+    }
+
+    .skill-tag {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 0.18rem 0.55rem;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    /* PROJECTS */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+    }
+
+    .project-title {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .project-tagline {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-desc {
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 0.7rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    /* ACHIEVEMENTS / TIMELINE */
+
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .t-item {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.9rem;
+      align-items: flex-start;
+    }
+
+    .t-marker {
+      width: 20px;
+      display: flex;
+      justify-content: center;
+      padding-top: 0.25rem;
+    }
+
+    .t-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
+    }
+
+    .t-card {
+      background: var(--bg-soft);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 0.8rem 1rem;
+      font-size: 0.86rem;
+    }
+
+    .t-title {
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .t-meta {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .t-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* CONTACT */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.3rem;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .contact-text {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .contact-details p {
+      font-size: 0.86rem;
+      margin-bottom: 0.4rem;
+      color: var(--muted);
+    }
+
+    .contact-details span.label {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .contact-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.8rem;
+    }
+
+    .fake-form-field {
+      border-radius: 0.8rem;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      padding: 0.6rem 0.8rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .fake-form-field span {
+      opacity: 0.8;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 1.3rem 0 1.1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <div class="logo-wrap">
+          <div class="logo-circle">SS</div>
+          <div class="logo-text">
+            <span>Siddhant Saurav</span>
+            <span>B.Tech CSE • Portfolio</span>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#achievements">Achievements</a>
+          <a href="#contact">Contact</a>
+          <button class="nav-btn" onclick="location.href='#contact'">Hire / Collaborate</button>
+        </div>
+        <div class="nav-toggle" id="navToggle">☰</div>
+      </nav>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="pill">
+            <span class="pill-dot"></span>
+            <span>1st Year • B.Tech CSE • India</span>
+          </div>
+          <h1 class="hero-title">
+            Hi, I'm <span>Siddhant Saurav</span><br />
+            a curious student developer exploring AI & apps.
+          </h1>
+          <p class="hero-subtitle">
+            I’m a Computer Science Engineering student who loves learning by building —
+            from basic C programs to ideas in Artificial Intelligence, Data Science,
+            and App Development. I enjoy turning concepts into real, working projects.
+          </p>
+
+          <div class="hero-tags">
+            <span class="tag tag-strong">IIC Gold Medal – Idea Pitch</span>
+            <span class="tag">InteliQuest Runner Up – Data Science & AI</span>
+            <span class="tag">Open to internships & collaborations</span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn-primary">
+              <span>See my projects</span>
+              <span class="btn-icon">➜</span>
+            </a>
+            <a href="#contact" class="btn-outline">
+              <span class="btn-icon">✉</span>
+              <span>Contact me</span>
+            </a>
+          </div>
+
+          <p class="hero-note">
+            Currently improving my <strong>C, DSA, AI basics</strong> and planning
+            to dive into <strong>app development</strong> soon.
+          </p>
+        </div>
+
+        <div>
+          <div class="hero-card">
+            <div class="hero-card-header">
+              <div class="hero-card-title">Student Snapshot</div>
+              <div class="status-pill">
+                <span class="status-dot"></span>
+                <span>Actively learning</span>
+              </div>
+            </div>
+            <div class="hero-card-grid">
+              <div class="avatar-card">
+                <div class="avatar-main">
+                  SS
+                  <span class="avatar-orbit-dot dot1"></span>
+                  <span class="avatar-orbit-dot dot2"></span>
+                  <span class="avatar-orbit-dot dot3"></span>
+                </div>
+              </div>
+              <div class="stats-grid">
+                <div class="stat">
+                  <strong>1st Year</strong>
+                  <span>B.Tech Computer Science</span>
+                  <div class="stat-pill">🎓 CSE Undergrad</div>
+                </div>
+                <div class="stat">
+                  <strong>AI & Apps</strong>
+                  <span>Exploring real-world use cases</span>
+                  <div class="stat-pill">💻 Learning by building</div>
+                </div>
+                <div class="stat">
+                  <strong>2+ Awards</strong>
+                  <span>IIC Gold, InteliQuest Runner Up</span>
+                  <div class="stat-pill">🏅 Innovation & AI</div>
+                </div>
+                <div class="stat">
+                  <strong>Next</strong>
+                  <span>Internships & hackathons</span>
+                  <div class="stat-pill">🚀 Growth mindset</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-sub">
+          A quick overview of who I am, what I've done so far, and where I'm heading.
+        </p>
+      </div>
+      <div class="card">
+        <p class="about-text">
+          I'm <strong>Siddhant Saurav</strong>, a first-year B.Tech Computer Science
+          Engineering student. I enjoy breaking down complex concepts into simple
+          ideas and turning them into working programs and projects. My journey
+          started with C programming and is now expanding into
+          <strong>Artificial Intelligence, Machine Learning, Data Science, and App Development</strong>.
+        </p>
+        <div class="about-highlights">
+          <span class="about-chip">IIC Gold Medal – Startup Idea Pitch</span>
+          <span class="about-chip">InteliQuest Runner Up – Data Science & AI</span>
+          <span class="about-chip">Comfortable with C Programming Basics</span>
+          <span class="about-chip">Curious, consistent learner</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Skills & Tech Stack</h2>
+        <p class="section-sub">
+          Tools, technologies, and areas I'm currently learning and using.
+        </p>
+      </div>
+      <div class="skills-grid">
+        <div class="card">
+          <div class="skill-title">Programming</div>
+          <p class="skill-desc">
+            Writing clean and logical code while strengthening core programming fundamentals.
+          </p>
+          <div class="skill-tags">
+            <span class="skill-tag">C Programming</span>
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Algorithms (learning)</span>
+            <span class="skill-tag">Data Structures (learning)</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="skill-title">AI, ML & Data</div>
+          <p class="skill-desc">
+            Building a foundation in AI concepts, math, and data handling for future projects.
+          </p>
+          <div class="skill-tags">
+            <span class="skill-tag">Python Basics</span>
+            <span class="skill-tag">AI / ML Concepts</span>
+            <span class="skill-tag">Data Science Basics</span>
+            <span class="skill-tag">Math for AI</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="skill-title">Development</div>
+          <p class="skill-desc">
+            Exploring how to build useful tools and applications from scratch.
+          </p>
+          <div class="skill-tags">
+            <span class="skill-tag">App Dev (planning)</span>
+            <span class="skill-tag">Basic Web Concepts</span>
+            <span class="skill-tag">Git & GitHub</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="skill-title">Soft Skills</div>
+          <p class="skill-desc">
+            Skills that help me work with people, present ideas, and grow faster.
+          </p>
+          <div class="skill-tags">
+            <span class="skill-tag">Presentation & Pitching</span>
+            <span class="skill-tag">Communication</span>
+            <span class="skill-tag">Teamwork</span>
+            <span class="skill-tag">Fast Learner</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-sub">
+          Some ideas and projects that reflect what I'm learning and building.
+        </p>
+      </div>
+      <div class="projects-grid">
+        <div class="card">
+          <div class="project-title">Smart Study Planner (Concept)</div>
+          <div class="project-tagline">AI • Productivity • Students</div>
+          <p class="project-desc">
+            An AI-powered concept that helps students plan their study sessions based
+            on subjects, topics, and upcoming exams. It could prioritize weaker areas,
+            schedule breaks, and send friendly reminders.
+          </p>
+          <span class="badge">Idea Stage</span>
+        </div>
+
+        <div class="card">
+          <div class="project-title">C Programming Practice Hub</div>
+          <div class="project-tagline">C • Logic Building</div>
+          <p class="project-desc">
+            A growing collection of C programs that cover loops, arrays, strings,
+            functions, and basic data structures. This helps me build strong logic
+            and confidence in coding.
+          </p>
+          <span class="badge">Learning Project</span>
+        </div>
+
+        <div class="card">
+          <div class="project-title">My Portfolio Website</div>
+          <div class="project-tagline">HTML • CSS • Responsive</div>
+          <p class="project-desc">
+            This very website — a clean and modern portfolio created with HTML and CSS
+            to showcase my skills, achievements, and projects as I grow in my CSE journey.
+          </p>
+          <span class="badge">You are here 🚀</span>
+        </div>
+
+        <div class="card">
+          <div class="project-title">Next: App or AI Tool</div>
+          <div class="project-tagline">Coming Soon</div>
+          <p class="project-desc">
+            Planning to build a simple Android app or AI-based tool for students, such
+            as notes management, quiz generation, or timetable organization.
+          </p>
+          <span class="badge">In Planning</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Achievements</h2>
+        <p class="section-sub">
+          Some milestones from my early journey in tech and innovation.
+        </p>
+      </div>
+      <div class="card">
+        <div class="timeline">
+          <div class="t-item">
+            <div class="t-marker">
+              <div class="t-dot"></div>
+            </div>
+            <div class="t-card">
+              <div class="t-title">IIC Gold Medal Winner</div>
+              <div class="t-meta">Institution Innovation Council • Idea Pitch</div>
+              <div class="t-desc">
+                Received the <strong>IIC Gold Medal</strong> for pitching an innovative
+                idea. This taught me how to think about real problems, present solutions,
+                and communicate clearly in front of a jury.
+              </div>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-marker">
+              <div class="t-dot"></div>
+            </div>
+            <div class="t-card">
+              <div class="t-title">InteliQuest Runner Up</div>
+              <div class="t-meta">Data Science, AI & ML Competition</div>
+              <div class="t-desc">
+                Achieved <strong>Runner Up</strong> position in InteliQuest, a contest
+                based on Data Science, Artificial Intelligence, and Machine Learning.
+                It pushed me to learn more about AI and its applications.
+              </div>
+            </div>
+          </div>
+
+          <div class="t-item">
+            <div class="t-marker">
+              <div class="t-dot"></div>
+            </div>
+            <div class="t-card">
+              <div class="t-title">Continuous Learning</div>
+              <div class="t-meta">Self-learning • Online Resources • Events</div>
+              <div class="t-desc">
+                I regularly join workshops, events, and online courses to keep
+                upgrading my skills in programming, AI, and development. Small steps
+                every day towards a strong future in tech.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-sub">
+          Have an internship, project, or collaboration idea? Let’s talk.
+        </p>
+      </div>
+      <div class="contact-grid">
+        <div class="card">
+          <p class="contact-text">
+            I’m open to opportunities like <strong>internships, remote projects,
+            coding collaborations, and hackathons</strong>. If you’re a senior,
+            mentor, or fellow student working on something exciting, I’d be happy
+            to connect.
+          </p>
+          <div class="contact-details">
+            <p><span class="label">Email:</span> your.email@example.com</p>
+            <p><span class="label">GitHub:</span> github.com/yourusername</p>
+            <p><span class="label">LinkedIn:</span> linkedin.com/in/yourprofile</p>
+            <p><span class="label">Location:</span> India • IST (UTC +5:30)</p>
+          </div>
+          <p class="contact-note">
+            Tip: Replace the placeholders above with your real email, GitHub, and LinkedIn before sharing this website.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="fake-form-field">
+            <strong>Message Preview</strong><br />
+            <span>"Hi Siddhant, I saw your portfolio and would like to discuss a project / internship opportunity..."</span>
+          </div>
+          <div class="fake-form-field">
+            <strong>How to contact?</strong><br />
+            <span>Use the email or LinkedIn links on the left to send me a message. This section is kept simple for now.</span>
+          </div>
+          <p class="contact-note">
+            Later, you can convert this into a real form using a backend or services like Formspree / EmailJS.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>© 2025 Siddhant Saurav. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="#top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to top ↑</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+ 
+</body>
+</html>
